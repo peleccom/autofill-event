@@ -65,11 +65,23 @@
       // as real value. This might have been filled in the backend,
       // ...
       // Note: it's important to not use the value property here!
-      el.$$currentValue = el.getAttribute('value');
+
+      if (el.type === 'checkbox') {
+        // Use checked attribute for checkboxes as value
+        el.$$currentValue = (el.getAttribute('checked') !== null);
+      } else {
+        el.$$currentValue = el.getAttribute('value');
+      }
     }
 
-    var val = el.value,
-         $$currentValue = el.$$currentValue;
+    var val;
+    if (el.type === 'checkbox') {
+      val = el.checked
+    } else {
+      val = el.value;
+    }
+
+    var $$currentValue = el.$$currentValue;
     if (!val && !$$currentValue) {
       return true;
     }
