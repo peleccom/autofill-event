@@ -1,5 +1,5 @@
 /**
- * Autofill event polyfill ##version:1.0.0##
+ * Autofill event polyfill ##version:1.0.1##
  * (c) 2014 Google, Inc.
  * License: MIT
  */
