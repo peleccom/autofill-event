@@ -1,5 +1,5 @@
 /**
- * Autofill event polyfill ##version:1.0.1##
+ * Autofill event polyfill ##version:1.0.5##
  * (c) 2014 Google, Inc.
  * License: MIT
  */
@@ -54,6 +54,9 @@
       el = this[i];
       if (!valueMarked(el)) {
         markValue(el);
+        if (el.type === 'checkbox') {
+          continue;
+        }
         triggerChangeEvent(el);
       }
     }
@@ -89,7 +92,11 @@
   }
 
   function markValue(el) {
-    el.$$currentValue = el.value;
+    if (el.type === 'checkbox') {
+      el.$$currentValue = el.checked;
+    } else {
+      el.$$currentValue = el.value;
+    }
   }
 
   function addValueChangeByJsListener(listener) {
