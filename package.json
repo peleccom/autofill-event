@@ -1,10 +1,11 @@
 {
   "name": "autofill-event-fixed",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/pavelsl/autofill-event.git"
   },
+  "main": "autofill-event-fixed.js",
   "licenses": [
     {
       "type": "MIT",
